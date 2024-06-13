@@ -1,0 +1,150 @@
+/* Define the widths: play around with these to get a best fit. */
+.GridItemMain {
+    display: flex;
+    flex-wrap: wrap;        /* test with wrap nowrap */
+    flex-direction: row;
+    align-items: flex-start;    /* alignment along cross axis - center flex-start flex-end */
+    justify-content: space-around;
+  }
+  
+  :root {
+  
+    --cell-width: 300px; /*300px?*/
+  }
+  
+  .tableFluid {
+    padding: 30px;
+    font-size: 20px;
+    width: 100%;
+  }
+  
+  .theadFluid .trFluid {
+    background-color: #ec7263;
+    font-weight: bold;
+    padding-top: 10px;
+    padding-bottom: 10px;
+  }
+  
+  .tbodyFluid .trFluid {
+    color: whitesmoke;
+  }
+  
+  .trFluid:nth-child(even) {
+    background-color: #febe7e;
+  }
+  
+  /* Main container: initialize the flex, direction is row */
+  .trFluid {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 5px;
+    align-items: center;
+    transition: scale 0.5s;
+  }
+  
+  /* Wrappers around cells and other wrappers: flex, row, wrap */
+  .trFluid_Grouping2, 
+  .trFluid_Grouping1
+  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    flex-grow: 1;
+  }
+  
+  .trFluid_Grouping2.num, 
+  .trFluid_Grouping1.num {
+    flex-grow: 0;
+  }
+  
+  /* Text based cells: grow, truncate and show ellipsis when there is not enough space */
+  .tdFluent {
+    flex-grow: 1; 
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    padding-right: 20px;
+    width: var(--cell-width);
+    padding-right: -10px;
+  }
+  
+  .tdFluent.num {
+    width: var(--cell-width);
+    text-align: right;
+  }
+  
+  .btnBooks{
+    width: 8em;
+    height: 3em;
+    border-radius: 5px;
+    background-color: #a75265;
+    color: whitesmoke;
+    box-shadow: 2px 2px 2px 2px #febe7e;
+    margin-top: 10px;
+  }
+
+  .btnTable{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content:space-between;
+    align-items:end;
+  }
+
+  .trFluid:hover:not(.theadFluid .trFluid) { /* Ser till att titelrubriken inte förstoras men resten av tabellen gör det */
+    scale: 103%;
+  }
+  
+  /* Media queries: optimize for different screen widths. */
+  
+  /* First breakpoint: all cells, does not fit into one row: break according to Grouping1 */
+  @media (max-width: 1200px) {
+  
+    /* inner wrappers vertical */
+    .trFluid_Grouping1 {
+      /* Let the wrapper flex vertically, so we get 2 rows */
+      flex-direction: column;
+      width: var(--cell-width);
+    }
+  
+    /* can't have the children grow, since this means vertical growth 
+         but let them grow horizontally, 100% to fill the wrapper */
+    .trFluid_Grouping1 div {
+      flex-grow: 0;
+      width: 100%;
+    }
+  }
+  
+  /* Second breakpoint: break according to Grouping2 */
+  @media (max-width: 800px) {
+  
+    /* inner wrappers vertical */
+    .trFluid_Grouping2 {
+      /* Let the wrapper flex vertically, so we get more rows */
+      flex-direction: column;
+      width: var(--cell-width);
+    }
+  
+    /* can't have the children grow, since this means vertical growth 
+         but let them grow horizontally, 100% to fill the wrapper */
+      .trFluid_Grouping2 div {
+      flex-grow: 0;
+      width: 100%;
+    }
+  }
+  
+  /* Some borders to show the behaviour. Uncomment to see it in action */
+  /*
+  .trFluid_Grouping1 {
+    border: 1px solid green;
+    padding: 2px;
+    margin: 2px;
+  }
+  .trFluid_Grouping2 {
+    border: 1px solid red;
+    margin: 2px;
+  }
+  */

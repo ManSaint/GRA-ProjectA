@@ -1,0 +1,12 @@
+.GridItemMain {
+    display: flex;
+    flex-wrap: wrap;        /* test with wrap nowrap */
+    flex-direction: row;
+    align-items: flex-start;    /* alignment along cross axis - center flex-start flex-end */
+    justify-content: center;
+  }
+  
+  .About {
+    color: hsl(0, 0%, 3%);
+    padding: 20px;
+  }

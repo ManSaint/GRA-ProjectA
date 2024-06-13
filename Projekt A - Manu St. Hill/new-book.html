@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>Form</title>
+  <meta name="viewport" content="width=device-width" />
+  <link rel="stylesheet" href="./css/layout.css" />
+  <link rel="stylesheet" href="./css/new-book.css">
+</head>
+<body>
+    <div class="GridPage">
+        <div class="GridItemSideOne">
+            <div class="MenuWrap">
+              <a href="./about.html" class="ListItem">Home</a>
+              <a href="./images.html" class="ListItem">Images</a>
+              <a href="./table.html" class="ListItem">Table</a>
+              <a href="./new-book.html" class="ListItem">New book</a>
+              <a href="./layout.html" class="LastItem">Layout</a>
+
+            </div>
+        </div>
+        <div class="GridItemMain">
+            <div class="FlexWrap">
+                <form class="formContainer" id="whoAreYou" method="post">
+                    <div class="formIntroContainer">
+                      <div>
+                        <h1>Bookshelf</h1>
+                        <h2>
+                          Add a book.
+                        </h2>
+                      </div>
+                      <b>Note: an asterisk (*) indicates a required field</b><br>
+                    </div>
+                    <fieldset>
+                      <legend>Tell us about your book</legend>
+                      <div class="formInputContainer">
+                        <input id="bookName" name="bookName" type="text" placeholder="e.g. Jungle Book" required />
+                        <label for="bookName">Book title</label>
+                      </div>
+                      <div class="formInputContainer">
+                        <input id="authorName" name="authorName" type="text" required />
+                        <label for="authorName">Author</label>
+                      </div>
+                      <div class="formInputContainer">
+                        <input id="yearPublished" name="yearPublished" type="number" min="0" max="2024" required />
+                        <label for="yearPublished">Year published</label>
+                      </div>
+                      <div class="formInputContainer">
+                        <input id="copiesSold" name="copiesSold" type="number" />
+                        <label for="copiesSold">Copies sold</label>
+                      </div>
+                    <button class="form-Submit_Btn" type="submit" value="Submit Redemption">
+                      <span class="flipper">
+                        <span class="flipper-object flipper-vertical">
+                          <span class="panel front">Ready?</span>
+                          <span class="panel back">Submit</span>
+                        </span>
+                      </span>
+                    </button>
+                  </form>
+            </div>
+        </div>
+        <div class="GridItemHeader">My Application</div>
+        <div class="GridItemFooter">(C) Manu</div>
+    </div>
+
+    <script type="module" src="./script/new-book.js"></script>
+
+</body>
+
+</html>

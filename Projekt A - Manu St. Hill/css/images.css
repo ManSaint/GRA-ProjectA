@@ -1,0 +1,187 @@
+body{
+  margin: 0;
+}
+
+.GridPage {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 100px 1fr;
+    grid-template-rows: 50px 1fr 50px;
+  
+    grid-template-areas:
+      'header header'
+      'side1 main'
+      'footer footer';
+  }
+
+  .MenuWrap {
+    color: #ebebeb;
+    font-family: 'Oswald', sans-serif;
+    font-size: 1rem;
+    display: flex;
+    align-items: flex-start;  /* changed to align around main axis to the left */	
+    flex-direction: column;	/* makes flexbox change the direction */
+    width:100%;
+    height:100%;
+  }
+
+  .ListItem, .LastItem {
+    display: flex;
+    color:#ebebeb;
+    text-decoration: none;  /* removes the classic link underline */
+    justify-content: center;
+  }
+
+  .ListItem {
+    margin-bottom: 1rem;		/* change to 1rem; to move to the last item to the bottom */
+    margin-top: 1rem;
+  }
+
+  .LastItem {
+    margin-top: auto;		/* change to margin-top; to move to the last item to the bottom */
+  }
+
+  .FlexWrap {
+    font-family: 'Oswald', sans-serif;
+ 
+    width: 100%;
+    text-align: center;
+    
+    display: flex;
+    flex-wrap: wrap;        /* test with wrap nowrap */
+    align-items: start;    /* alignment along cross axis - center flex-start flex-end */
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+ 
+  .FlexItem {
+    background-image: linear-gradient(to bottom, #ec7263, #febe7e);
+    width: 200px;     /* fixed size will demonstrate the wrap */
+  
+    /* below is used to center text using a flexbox layout of the text in an FlexItem */
+    display: flex;
+    flex-direction: column;
+    align-items: center;      
+    justify-content: center;
+    margin: 10px;
+
+    transition: scale 0.5s;
+  }
+
+  .FlexWrap img {
+    max-width: 100%;
+  }
+
+  a {
+    transition: scale 0.5s;
+    transition: font-weight 0.5s;
+    transition: color 0.5s;
+  }
+
+  a:hover {
+    font-weight: bold;
+    color: #57385c;
+    /* translate: 0 -10px; */
+  }
+
+  .FlexItem:hover {
+    scale: 110%;
+  }
+
+  .GridItemMain.tableFluid {
+    align-items: start;
+  }
+
+  /* .FlexItem:nth-child(odd) {
+    border: solid blue;
+  } */
+
+  @media (max-width: 600px) {
+    .GridPage {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 50px 50px 1fr 30px;
+  
+      grid-template-areas:
+        'header header'
+        'side1 side1'
+        'main main'
+        'footer footer';
+    }
+
+    .MenuWrap {
+      flex-direction: row;
+      justify-content: center;
+    }
+
+    .ListItem {
+      margin-bottom: unset;		/* change to 1rem; to move to the last item to the bottom */
+      margin-right: 1rem;
+    }
+  
+    .LastItem {
+      margin-top: unset;		/* change to margin-top; to move to the last item to the bottom */
+    }
+
+    .ListItem, .LastItem {
+      margin-top: 1rem;
+    }
+
+    .FlexItem {
+      width: 100%;
+    }
+  }
+
+  [class^='GridItem'] {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    color: whitesmoke;
+  }
+
+  .GridItemHeader {
+    grid-area: header;
+    background-color: #a75265;
+  }
+  
+  .GridItemSideOne {
+    grid-area: side1;
+    background-color: #a75265;
+  }
+  
+  .GridItemMain {
+    grid-area: main;
+    background-color: #57385c;
+    opacity: 0.8;
+    /* background-image: repeating-radial-gradient( circle at 0 0, transparent 0, #242426 25px ), repeating-linear-gradient( #444cf755, #444cf7 ); */
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:space-around;
+    /* overflow-y: scroll; */
+    scroll-behavior: smooth;
+    }
+  
+  .GridItemFooter {
+    grid-area: footer;
+    background-color: #a75265;
+
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 5px;
+  }
+
+  /* DEBUG */
+
+  /* [class^='GridItem'] {
+    outline: 3px dashed #f90;
+  }
+
+  .GridPage {
+    gap: 10px;
+    background-color: indigo;
+  }
+
+  .MenuWrap {
+    background-color: indigo;
+  } */
